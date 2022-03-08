@@ -142,7 +142,7 @@ Ejemplo de entrada:
 Ejemplo de salida:
 
 ```js
-1728000;
+512;
 ```
 
 10. Reciba un array por argumentos con todo tipo de elementos (numbers, strings, booleans, objects y arrays) y que haga los siguientes pasos:
@@ -177,5 +177,5 @@ Ejemplo de entrada:
 Ejemplo de salida:
 
 ```js
-13.33;
+19.333333333333332;
 ```
