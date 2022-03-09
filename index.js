@@ -70,20 +70,63 @@ console.log(keysAndBoolean)
 
 array = [1, 'hello', 2, true, { a: 1, b: 2 }, 3, 'greetings', ['a', 'b', false], 4, false, 'bye!', 5]
 /*
-console.log(array.filter(e => Math.floor(e) && e % 2 === 0).reduce((a, e) => a * (e**3), 1)) //da 512
+console.log(array.filter(e => Math.floor(e) && e % 2 === 0).reduce((a, e) => a * (e**3), 1)) //da 512, no me coge el 2 de dentro del obj
 */
 
 
 //10
 
-const otia = array.filter(e => {
-  return typeof e === 'string'
-})
 
+//just strings
+let arrayOfAsciis = []
+const justStrings = array.filter(e => typeof e === 'string')
 
-   
-  'ttgr'.codePointAt(0)
-  //.concat.codePointAt(i)
+//strings of asciis
 
+  for (let i = 0; i < justStrings.length; i++) {
+    let currentWord = justStrings[i]
+    let asciiWord = ''
+    for (let j = 0; j < currentWord.length; j++) {
 
-console.log(otia.map(e => ));
+       asciiWord += currentWord.charCodeAt(j) 
+      
+    }
+    
+    arrayOfAsciis.push(asciiWord)
+
+  }
+
+//array of only odd numbers
+
+let arrayOddAscii = []
+let charCounter = 0
+for (let i = 0; i < arrayOfAsciis.length; i++) {
+  let oddAscii = ''
+  currentString = arrayOfAsciis[i]
+  for (let j = 0; j < currentString.length; j++) {
+    
+    if (currentString[j] % 2 !== 0) {
+      currentString[j]
+      oddAscii += currentString[j]
+    }
+    
+  }
+  arrayOddAscii.push(oddAscii)
+}
+
+// sumar numeros en cada palabra
+
+let sumArray = []
+
+for (let i = 0; i < arrayOddAscii.length; i++) {
+  let acc = 0
+  currentString = arrayOddAscii[i]
+  for (let j = 0; j < currentString.length; j++) {
+    acc += Math.floor(currentString[j])
+  }
+  sumArray.push(acc)
+}
+
+//suma elementos y media sobre total elementos array de strings
+
+let media = sumArray.reduce((a, n) => a+n, 0)/justStrings.length
