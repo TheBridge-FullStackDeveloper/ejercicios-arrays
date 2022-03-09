@@ -103,6 +103,38 @@ console.log(newArr8(arr8))
 
 const arr9 = [1, 'hello', 2, true, { a: 1, b: 2 }, 3, 'greetings', ['a', 'b', false], 4, false, 'bye!', 5]
 
+const array9 = (arg) =>{
+  newArr9 = []
+  objArr9 = []
+ for(item of arg){
+   if(typeof item === "object"){
+     let number = Object.values(item)
+     objArr9.push(number)
+   }else{
+     newArr9.push(item)
+   }
+ }
+let allItems = objArr9.reduce(function(previousValue, currentValue) {
+  return [...previousValue, ...currentValue]
+}, [])
+
+let justNumber = allItems.filter((element, index, array)=>{
+      return (element%2===0 && typeof element === "number")
+  })
+return newArr9.concat(justNumber).sort()
+}
+
+const newArray9 = array9(arr9)
+//console.log(newArray9)
+const onlyValues = (arr) => {
+  return arr.filter((element,index,array)=>{
+    return (element%2===0 && typeof element === "number")
+  })
+}
+const parNumbers = onlyValues(newArray9).reduce((acc, curr, index, array) => acc * Math.pow(curr, 3) ,1);
+
+console.log(parNumbers)
+
 //10- Reciba un array por argumentos con todo tipo de elementos (numbers, strings, booleans, objects y arrays) y  que haga los siguientes pasos:
 //  -> Quédate solo con los strings
 //  -> Obtén el valor del código ASCII de cada letra y concatena dichos resultados para cada palabra. Ejemplo 'boa' -> '9811197' (98 de la 'b', 111 de la 'o' y 97 de la 'a')
