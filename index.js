@@ -109,10 +109,8 @@ const getCodes = word => {
   return code
 }
 
-const removePairs = word =>
-  word
-    .split('')
-    .filter(letter => Number(letter) % 2)
+const removePairs = ([...word]) =>
+  word.filter(letter => Number(letter) % 2)
 
 const sumChars = word =>
   word.reduce((acc, curr) => acc + Number(curr) ,0)
@@ -143,3 +141,32 @@ const result10 = exercise10(
   ]
 )
 console.log("> result 10: ", result10)
+
+/**
+ * EXTRA
+ * Y si quisiéramos romper el objeto y el array para liberar sus valores en el array exterior? (flatten)
+ */
+
+const flatContent = arr =>
+  // Recorremos el array con reduce porque necesitamos un array más grande que el original
+  // Filter devuelve un nuevo array de mismo o menor tamaño, pero nunca mayor
+  arr.reduce((acc, curr) => {
+    // Si el elemento actual es de tipo "object" entramos en el if (nos vale para arrays y objetos)
+    if(typeof curr === 'object') {
+      // Con Object.values extraemos todos los valores del objeto en un array y,
+      // para cada uno de los valores los metemos en el acumulador (el nuevo array)
+      for(const value of Object.values(curr)) {
+        acc.push(value)
+      }
+      return acc
+    }
+    // Si el elemento no es objeto o array, simplemente metemos el elemento en el acumulador (el nuevo array) y lo devolvemos
+    acc.push(curr)
+    return acc
+  }, [])
+
+const mixedArray = [1, "hello", 2, true, { a: 1, b: 2 }, 3, "greetings", ["a", "b", false], 4, false, "bye!", 5]
+const flatResult = flatContent(mixedArray)
+
+console.log('> Original: ', mixedArray)
+console.log("> Flatten: ", flatResult)
