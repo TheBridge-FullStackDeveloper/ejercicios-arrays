@@ -84,11 +84,10 @@ console.log('Ejercicio 8: ', result8)
 
 //9
 
-array = [1, 'hello', 2, true, { a: 1, b: 2 }, 3, 'greetings', ['a', 'b', false], 4, false, 'bye!', 5]
 
 const evenNumbersPowThree = array => array.filter(e => Math.floor(e) && e % 2 === 0).reduce((a, e) => a * (e**3), 1)
 
-const result9 = evenNumbersPowThree([1, 'hello', 2, 3, 'greetings', 4, 'bye!', 5])
+const result9 = evenNumbersPowThree([1, 'hello', 2, true, { a: 1, b: 2 }, 3, 'greetings', ['a', 'b', false], 4, false, 'bye!', 5])
 
 console.log('Ejercicio 9: ', result9)
 
