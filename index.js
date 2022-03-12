@@ -153,4 +153,4 @@ let media = sumArray1.reduce((a, n) => a+n, 0)/justStrings.length
 
 
 
-console.log(media)
+console.log('Ejercicio 10: ', media)
