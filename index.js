@@ -1,88 +1,108 @@
 //1 
 
-let array = [1, 2, 3, 4, 5]
-/*
-const newArray = array.map(e => e)
 
-console.log(array.map(e => e))
-*/
+
+const sameArray = a => a.map(e => e)
+
+const result1 = sameArray([1, 2, 3, 4, 5])
+
+console.log('Ejercicio 1: ', result1)
+
 
 //2
 
-array = [1, 'hello', 2, 3, 'greetings', 4, 'bye!', 5]
-/*
-const multi = array.map(e => Math.floor(e) ? e * 2 : e)
 
-console.log(multi)
-*/
+
+const numbersMultByTwo = a =>
+  a.map(e => Math.floor(e) ? e * 2 : e)
+
+const result2 = numbersMultByTwo([1, 'hello', 2, 3, 'greetings', 4, 'bye!', 5])
+
+console.log('Ejercicio 2: ', result2)
+
 
 //3
-/*
-array = [1, 'hello', 2, 3, 'greetings', 4, 'bye!', 5]
 
-const mayusPar = array.map((e, i) => typeof e === 'string' && !(i % 2) ? e.toUpperCase() : e)
 
-console.log(mayusPar)
-*/
+
+const mayusPar = array => array.map((e, i) => typeof e === 'string' && !(i % 2) ? e.toUpperCase() : e)
+
+const result3 = mayusPar([1, 'hello', 2, 3, 'greetings', 4, 'bye!', 5])
+
+console.log('Ejercicio 3: ', result3)
+
 
 //4
-/*
 
-const justNum = array.filter(e => Math.floor(e))
 
-console.log(justNum)
-*/
+const justNum = array => array.filter(e => Math.floor(e))
+
+const result4 = justNum([1, 'hello', 2, 3, 'greetings', 4, 'bye!', 5])
+
+console.log('Ejercicio 4: ', result4)
+
 
 //5
-/*
 
-const evenStrings = array.filter(e => !(Math.floor(e)) && e.length % 2)
 
-console.log(evenStrings)
-*/
+const evenStrings = array => array.filter(e => !(Math.floor(e)) && e.length % 2)
+
+const result5 = evenStrings([1, 'hello', 2, 3, 'greetings', 4, 'bye!', 5])
+
+console.log('Ejercicio 5: ', result5)
+
 
 //6
-/*
-const mixCond = array.filter(e => (Math.floor(e) && e>=5) || (!(Math.floor(e)) && e.length > 8))
 
-console.log(mixCond)
-*/
+const mixCond = array => array.filter(e => (Math.floor(e) && e>=5) || (!(Math.floor(e)) && e.length > 8))
+
+const result6 = mixCond([1, 'hello', 2, 3, 'greetings', 4, 'bye!', 5])
+
+console.log('Ejercicio 6: ', result6)
+
 
 //7
-array = [1, 2, 3, 4, 5]
-/*
-const sum = array.reduce((a, e) => a+e)
-console.log(sum)
-*/
+
+const sumArray = array => array.reduce((a, e) => a+e)
+
+const result7 = sumArray([1, 2, 3, 4, 5])
+
+console.log('Ejercicio 7: ', result7)
+
 
 //8
 
-/*
-const keysAndBoolean = array.reduce((a, e, i) => {
-  a[e] = e % 2 === 0
+
+const ObjWithkeysAndBoolean = array => array.reduce((a, e, i) => {
+  a[e] = !(e % 2)
   return a
 } , {})
 
-console.log(keysAndBoolean)
-*/
+const result8 = ObjWithkeysAndBoolean([1, 2, 3, 4, 5])
+
+console.log('Ejercicio 8: ', result8)
 
 //9
 
 array = [1, 'hello', 2, true, { a: 1, b: 2 }, 3, 'greetings', ['a', 'b', false], 4, false, 'bye!', 5]
-/*
-console.log(array.filter(e => Math.floor(e) && e % 2 === 0).reduce((a, e) => a * (e**3), 1)) //da 512, no me coge el 2 de dentro del obj
-*/
 
+const evenNumbersPowThree = array => array.filter(e => Math.floor(e) && e % 2 === 0).reduce((a, e) => a * (e**3), 1)
+
+const result9 = evenNumbersPowThree([1, 'hello', 2, 3, 'greetings', 4, 'bye!', 5])
+
+console.log('Ejercicio 9: ', result9)
 
 //10
 
+let array1 = [1, 'hello', 2, 3, 'greetings', 4, 'bye!', 5]
 
 //just strings
-let arrayOfAsciis = []
-const justStrings = array.filter(e => typeof e === 'string')
+
+const justStrings = array1.filter(e => typeof e === 'string')
 
 //strings of asciis
 
+let arrayOfAsciis = []
   for (let i = 0; i < justStrings.length; i++) {
     let currentWord = justStrings[i]
     let asciiWord = ''
@@ -116,7 +136,7 @@ for (let i = 0; i < arrayOfAsciis.length; i++) {
 
 // sumar numeros en cada palabra
 
-let sumArray = []
+let sumArray1 = []
 
 for (let i = 0; i < arrayOddAscii.length; i++) {
   let acc = 0
@@ -124,9 +144,13 @@ for (let i = 0; i < arrayOddAscii.length; i++) {
   for (let j = 0; j < currentString.length; j++) {
     acc += Math.floor(currentString[j])
   }
-  sumArray.push(acc)
+  sumArray1.push(acc)
 }
 
 //suma elementos y media sobre total elementos array de strings
 
-let media = sumArray.reduce((a, n) => a+n, 0)/justStrings.length
+let media = sumArray1.reduce((a, n) => a+n, 0)/justStrings.length
+
+
+
+console.log(media)
